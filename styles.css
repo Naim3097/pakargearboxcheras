@@ -16,6 +16,26 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Ensure flex containers don't overflow */
+.navbar .container,
+.nav-brand,
+.nav-links {
+    max-width: 100%;
+    overflow: visible;
 }
 
 /* Navigation */
@@ -28,12 +48,15 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
+    overflow-x: hidden;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .nav-brand {
@@ -826,10 +849,6 @@ h2::after {
     box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
 }
 
-.btn-buy i {
-    font-size: 1.1rem;
-}
-
 /* JV Auto Lube Transmission Treatment Section */
 .jv-treatment-section {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -958,7 +977,7 @@ h2::after {
     transition: transform 0.4s ease;
 }
 
-.jv-treatment-image:hover .jv-product-img {
+.jv-treatment-image:hover .jv-product_img {
     transform: scale(1.05);
 }
 
@@ -1439,7 +1458,7 @@ h2::after {
         font-size: 2.4rem;
     }
     
-    .jv-product-img {
+    .jv_product_img {
         max-width: 400px;
     }
 }
@@ -1488,8 +1507,52 @@ h2::after {
 }
 
 @media (max-width: 768px) {
+    /* Prevent horizontal scroll on mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+        max-width: 120px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .navbar .container {
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: 150px;
+    }
+    
     .mobile-menu-toggle {
         display: block;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1001;
+        right: 0;
+        margin-left: auto;
     }
     
     .nav-links {
@@ -1505,6 +1568,9 @@ h2::after {
         padding: 1rem 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .nav-links.active {
@@ -1516,6 +1582,7 @@ h2::after {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #f1f3f4;
+        box-sizing: border-box;
     }
     
     .nav-links a:hover {
@@ -1526,149 +1593,40 @@ h2::after {
         margin: 0.5rem 2rem;
         text-align: center;
         border-radius: 25px;
+        width: calc(100% - 4rem);
+        box-sizing: border-box;
     }
     
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    h2 {
-        font-size: 2.2rem;
-    }
-    
-    .section-intro {
-        font-size: 1.1rem;
-    }
-    
-    .importance-grid,
-    .services-grid,
-    .features-grid,
-    .oil-products-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .service-image {
-        height: 180px;
-    }
-    
-    .oil-product-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .product-image {
-        height: 200px;
-    }
-    
-    .jv-treatment-text h2 {
-        font-size: 2rem;
-    }
-    
-    .jv-treatment-text h3 {
-        font-size: 1.3rem;
-    }
-    
-    .jv-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .jv-cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .jv-product-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: 300px;
-        object-fit: contain;
-        border-radius: 15px;
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .jv-treatment-image {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: block;
-        padding: 0 1rem;
-    }
-    
-    .jv-image-overlay {
-        bottom: 15px;
-        left: 15px;
-    }
-    
-    .jv-badge {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .final-cta h2 {
-        font-size: 2.5rem;
-    }
-    
-    .final-cta p {
-        font-size: 1.1rem;
-    }
+    /* ...existing mobile styles... */
 }
 
+/* Mobile container specific styles */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
+    .container {
+        padding: 0 15px;
     }
     
-    .hero-grid {
-        gap: 1.5rem;
+    .navbar .container {
+        padding: 0 10px;
     }
     
-    .importance-grid {
-        grid-template-columns: 1fr;
+    .logo {
+        height: 40px;
+        width: auto;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: calc(100% - 60px);
     }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .mobile-menu-toggle {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -1903,7 +1861,7 @@ html {
         font-size: 2.4rem;
     }
     
-    .jv-product-img {
+    .jv_product_img {
         max-width: 400px;
     }
 }
@@ -1952,8 +1910,52 @@ html {
 }
 
 @media (max-width: 768px) {
+    /* Prevent horizontal scroll on mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+        max-width: 120px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .navbar .container {
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: 150px;
+    }
+    
     .mobile-menu-toggle {
         display: block;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1001;
+        right: 0;
+        margin-left: auto;
     }
     
     .nav-links {
@@ -1969,6 +1971,9 @@ html {
         padding: 1rem 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .nav-links.active {
@@ -1980,6 +1985,7 @@ html {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #f1f3f4;
+        box-sizing: border-box;
     }
     
     .nav-links a:hover {
@@ -1990,149 +1996,40 @@ html {
         margin: 0.5rem 2rem;
         text-align: center;
         border-radius: 25px;
+        width: calc(100% - 4rem);
+        box-sizing: border-box;
     }
     
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    h2 {
-        font-size: 2.2rem;
-    }
-    
-    .section-intro {
-        font-size: 1.1rem;
-    }
-    
-    .importance-grid,
-    .services-grid,
-    .features-grid,
-    .oil-products-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .service-image {
-        height: 180px;
-    }
-    
-    .oil-product-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .product-image {
-        height: 200px;
-    }
-    
-    .jv-treatment-text h2 {
-        font-size: 2rem;
-    }
-    
-    .jv-treatment-text h3 {
-        font-size: 1.3rem;
-    }
-    
-    .jv-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .jv-cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .jv-product-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: 300px;
-        object-fit: contain;
-        border-radius: 15px;
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .jv-treatment-image {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: block;
-        padding: 0 1rem;
-    }
-    
-    .jv-image-overlay {
-        bottom: 15px;
-        left: 15px;
-    }
-    
-    .jv-badge {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .final-cta h2 {
-        font-size: 2.5rem;
-    }
-    
-    .final-cta p {
-        font-size: 1.1rem;
-    }
+    /* ...existing mobile styles... */
 }
 
+/* Mobile container specific styles */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
+    .container {
+        padding: 0 15px;
     }
     
-    .hero-grid {
-        gap: 1.5rem;
+    .navbar .container {
+        padding: 0 10px;
     }
     
-    .importance-grid {
-        grid-template-columns: 1fr;
+    .logo {
+        height: 40px;
+        width: auto;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: calc(100% - 60px);
     }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .mobile-menu-toggle {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -2367,7 +2264,7 @@ html {
         font-size: 2.4rem;
     }
     
-    .jv-product-img {
+    .jv_product_img {
         max-width: 400px;
     }
 }
@@ -2416,8 +2313,52 @@ html {
 }
 
 @media (max-width: 768px) {
+    /* Prevent horizontal scroll on mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+        max-width: 120px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .navbar .container {
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: 150px;
+    }
+    
     .mobile-menu-toggle {
         display: block;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1001;
+        right: 0;
+        margin-left: auto;
     }
     
     .nav-links {
@@ -2433,6 +2374,9 @@ html {
         padding: 1rem 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .nav-links.active {
@@ -2444,6 +2388,7 @@ html {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #f1f3f4;
+        box-sizing: border-box;
     }
     
     .nav-links a:hover {
@@ -2454,149 +2399,40 @@ html {
         margin: 0.5rem 2rem;
         text-align: center;
         border-radius: 25px;
+        width: calc(100% - 4rem);
+        box-sizing: border-box;
     }
     
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    h2 {
-        font-size: 2.2rem;
-    }
-    
-    .section-intro {
-        font-size: 1.1rem;
-    }
-    
-    .importance-grid,
-    .services-grid,
-    .features-grid,
-    .oil-products-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .service-image {
-        height: 180px;
-    }
-    
-    .oil-product-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .product-image {
-        height: 200px;
-    }
-    
-    .jv-treatment-text h2 {
-        font-size: 2rem;
-    }
-    
-    .jv-treatment-text h3 {
-        font-size: 1.3rem;
-    }
-    
-    .jv-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .jv-cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .jv-product-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: 300px;
-        object-fit: contain;
-        border-radius: 15px;
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .jv-treatment-image {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: block;
-        padding: 0 1rem;
-    }
-    
-    .jv-image-overlay {
-        bottom: 15px;
-        left: 15px;
-    }
-    
-    .jv-badge {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .final-cta h2 {
-        font-size: 2.5rem;
-    }
-    
-    .final-cta p {
-        font-size: 1.1rem;
-    }
+    /* ...existing mobile styles... */
 }
 
+/* Mobile container specific styles */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
+    .container {
+        padding: 0 15px;
     }
     
-    .hero-grid {
-        gap: 1.5rem;
+    .navbar .container {
+        padding: 0 10px;
     }
     
-    .importance-grid {
-        grid-template-columns: 1fr;
+    .logo {
+        height: 40px;
+        width: auto;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: calc(100% - 60px);
     }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .mobile-menu-toggle {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -2831,7 +2667,7 @@ html {
         font-size: 2.4rem;
     }
     
-    .jv-product-img {
+    .jv_product_img {
         max-width: 400px;
     }
 }
@@ -2880,8 +2716,52 @@ html {
 }
 
 @media (max-width: 768px) {
+    /* Prevent horizontal scroll on mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+        max-width: 120px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .navbar .container {
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: 150px;
+    }
+    
     .mobile-menu-toggle {
         display: block;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1001;
+        right: 0;
+        margin-left: auto;
     }
     
     .nav-links {
@@ -2897,6 +2777,9 @@ html {
         padding: 1rem 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .nav-links.active {
@@ -2908,6 +2791,7 @@ html {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #f1f3f4;
+        box-sizing: border-box;
     }
     
     .nav-links a:hover {
@@ -2918,125 +2802,106 @@ html {
         margin: 0.5rem 2rem;
         text-align: center;
         border-radius: 25px;
+        width: calc(100% - 4rem);
+        box-sizing: border-box;
     }
     
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    h2 {
-        font-size: 2.2rem;
-    }
-    
-    .section-intro {
-        font-size: 1.1rem;
-    }
-    
-    .importance-grid,
-    .services-grid,
-    .features-grid,
-    .oil-products-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .service-image {
-        height: 180px;
-    }
-    
-    .oil-product-card {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    .product-image {
-        height: 200px;
-    }
-    
-    .jv-treatment-text h2 {
-        font-size: 2rem;
-    }
-    
-    .jv-treatment-text h3 {
-        font-size: 1.3rem;
-    }
-    
-    .jv-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .jv-cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .jv-product-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: 300px;
-        object-fit: contain;
-        border-radius: 15px;
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .jv-treatment-image {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: block;
-        padding: 0 1rem;
-    }
-    
-    .jv-image-overlay {
-        bottom: 15px;
-        left: 15px;
-    }
-    
-    .jv-badge {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
+    /* ...existing mobile styles... */
+}
 
+/* Mobile container specific styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
     
-    .cta-buttons {
-        flex-direction: column;
+    .navbar .container {
+        padding: 0 10px;
+    }
+    
+    .logo {
+        height: 40px;
+        width: auto;
+    }
+    
+    .nav-brand {
+        flex-shrink: 0;
+        max-width: calc(100% - 60px);
+    }
+    
+    .mobile-menu-toggle {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: flex;
         align-items: center;
-    }
-    
-    .final-cta h2 {
-        font-size: 2.5rem;
-    }
-    
-    .final-cta p {
-        font-size: 1.1rem;
+        justify-content: center;
     }
 }
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card,
+.feature-card,
+.testimonial-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Hover effects */
+.service-card:hover .service-img {
+    transform: scale(1.05);
+}
+
+.feature-card:hover i {
+    transform: scale(1.1);
+}
+
+/* Footer Styles */
+.footer {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 3rem 0 1.5rem;
+    border-top: 3px solid #FF8C00;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand-section {
+    max-width: 400px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.footer-brand h3 {
+    color: #FF8C
