@@ -1,6 +1,6 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    // Mobile menu toggle - Simple dropdown
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
         });
     }
     
