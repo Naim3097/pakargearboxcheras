@@ -184,3 +184,37 @@ function preloadImages() {
 
 // Initialize preloading
 preloadImages();
+
+// Hero Carousel functionality
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const indicators = document.querySelectorAll('.indicator');
+
+function showSlide(n) {
+    if (n >= slides.length) { currentSlideIndex = 0; }
+    if (n < 0) { currentSlideIndex = slides.length - 1; }
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+}
+
+function changeSlide(n) {
+    currentSlideIndex += n;
+    showSlide(currentSlideIndex);
+}
+
+function currentSlide(n) {
+    currentSlideIndex = n - 1;
+    showSlide(currentSlideIndex);
+}
+
+// Auto-advance carousel every 5 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 5000);
+
+// Initialize carousel
+showSlide(currentSlideIndex);

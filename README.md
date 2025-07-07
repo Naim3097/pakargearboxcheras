@@ -1,6 +1,6 @@
-# Overhaulin Yard - Gearbox Workshop Website
+# Faizal 4G Pakar Gearbox Cheras - Gearbox Workshop Website
 
-A professional single-page website for Overhaulin Yard, a gearbox and transmission service workshop located in Sungai Petani, Kedah.
+A professional single-page website for Faizal 4G Pakar Gearbox Cheras, a gearbox and transmission service workshop located in Cheras, Selangor.
 
 ## Features
 
@@ -14,7 +14,7 @@ A professional single-page website for Overhaulin Yard, a gearbox and transmissi
 ## File Structure
 
 ```
-pakargearboxutara/
+pakargearboxcheras/
 ├── index.html          # Main landing page
 ├── styles.css          # Stylesheet with responsive design
 ├── script.js           # JavaScript for interactivity
@@ -88,7 +88,7 @@ Update the content directly in `index.html` or refer to `content.md` for the ori
 ### Contact Information
 Search for phone numbers and addresses in `index.html` to update:
 - Phone: `010-460 7065`
-- Address: `No. 43 & 44, Jalan Melati 1, Bandar Amanjaya, 08000 Sungai Petani, Kedah`
+- Address: `Lot 123, Jalan Cheras Baru, Taman Cheras Jaya, 43200 Cheras, Selangor`
 
 ## SEO Optimization
 
@@ -112,4 +112,4 @@ For technical support or customization requests, refer to the development team o
 
 ## License
 
-This website template is created specifically for Overhaulin Yard business use.
+This website template is created specifically for Faizal 4G Pakar Gearbox Cheras business use.
